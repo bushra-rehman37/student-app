@@ -1,0 +1,110 @@
+.gradient-custom-2 {
+    /* fallback for old browsers */
+    background: #fccb90;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ff4400cd, #fe4c06bf, #333);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ff4400cd, #fe4c06bf, #333);
+  }
+  
+  #signup {
+    background: #ff4400cd;
+    border-color: #ff4400cd;
+  }
+  
+  #newbutton {
+    border-color: #ff4400cd;
+    color: #ff4400cd;
+  }
+  
+  #newbutton:hover {
+    background: #ff4400cd;
+    color: white;
+    border-color: #ff4400cd;
+  }
+  
+  #team {
+    color: black;
+    font-weight: bold;
+  }
+  
+  @media (min-width: 768px) {
+    .gradient-form {
+      height: 100% !important;
+    }
+  }
+  
+  @media (min-width: 769px) {
+    .gradient-custom-2 {
+      border-top-right-radius: .3rem;
+      border-bottom-right-radius: .3rem;
+    }
+  }
+  
+  .btn-primary {
+    margin-left: -20px;
+    margin-right: 21px;
+    background-color: #fff;
+    color: rgba(255, 68, 0, 0.8039215686);
+    border-color: #fff;
+    font-weight: bold;
+    font-size: 13px;
+    height: 30px;
+    width: 100px;
+    border: none;
+    margin-top: 17px;
+    border-radius: 17px;
+  }
+  
+  .btn-primary:hover {
+    background-color: #ff4400cd;
+    color: #fff;
+    font-weight: bold;
+    border-color: #ff4400cd;
+  }
+  
+  .btn {
+    width: 95%;
+    background-color: #ff4400cd;
+    color: #fff;
+  }
+  
+  .btn1 {
+    width: 48%;
+    background-color: rgba(255, 68, 0, 0.8039215686);
+    color: #fff;
+    border: none;
+    height: 33px;
+  }
+  
+  .danger {
+    color: #ff3d71;
+    margin-top: 0.5rem;
+    font-size: small;
+    text-align: right;
+  }
+  
+  .title {
+    text-align: center;
+    font-weight: 800;
+    margin-top: -1em;
+    color: rgb(255 68 0 / 91%);
+  }
+  
+  .modal-title {
+    border: solid 2px #ffc107;
+    text-align: justify;
+    margin-inline: 4em;
+    background-color: rgb(255 151 0);
+    color: #f8f9fa;
+    margin-top: 5px;
+    border-radius: 33px;
+    padding-left: 10px;
+  }
+  
+  .title1 {
+    text-align: center;
+    font-weight: 800;
+    margin-top: -1em;
+    color: rgb(255 68 0 / 91%);
+  }

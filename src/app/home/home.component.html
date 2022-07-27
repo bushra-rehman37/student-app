@@ -1,0 +1,248 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+    integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous" />
+</head>
+
+<body>
+
+  <section class="h-100 gradient-form" style="background-color: #eee;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-10">
+          <div class="card rounded-3 text-black">
+            <div class="row g-0">
+              <div class="col-lg-6">
+                <div class="card-body p-md-5 mx-md-4">
+
+                  <div class="text-center">
+                    <img src="../../assets/enexol-logo.png" style="width: 185px;" alt="logo">
+                    <h4 class="mt-1 mb-5 pb-1" id="team"> Welcome to Enexol </h4>
+                  </div>
+
+                  <div [formGroup]="form" *ngIf="form">
+                    <label class="mt-1 mb-5 pb-1">Please enter Details </label>
+
+                    <div class="form-outline mb-4">
+                      <input type="id" id="form2Example11" [(ngModel)]="id" name="id" class="form-control"
+                        placeholder="Student ID *" formControlName="id" />
+
+                      <div *ngIf="f['id'].touched && f['id'].invalid" class="alert alert-danger">
+                        <div *ngIf="f['id'].errors && f['id'].errors['required']">Student ID is required.</div>
+                        <div *ngIf="f['id'].errors && f['id'].errors['minlength']">ID should be 5 numbers.</div>
+                      </div>
+
+
+                    </div>
+
+                    <div class="form-outline mb-4">
+                      <input type="name" id="form2Example11" [(ngModel)]="sname" name="sname" class="form-control"
+                        placeholder="Name *" formControlName="sname">
+
+                      <div *ngIf="f['sname'].touched && f['sname'].invalid" class="alert alert-danger">
+                        <div *ngIf="f['sname'].errors && f['sname'].errors['required']">Name is required.</div>
+                        <div *ngIf="f['sname'].errors && f['sname'].errors['minlength']">Name should be 3 character.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                      <input type="father-name" id="form2Example11" [(ngModel)]="fname" name="fname"
+                        class="form-control" placeholder="Father Name" #secondname />
+                    </div>
+
+                    <div class="form-outline mb-4">
+                      <input type="address" id="form2Example11" [(ngModel)]="address" name="address"
+                        class="form-control" placeholder="Address" />
+                    </div>
+
+                    <div class="form-outline mb-4">
+                      <input type="email" id="form2Example11" [(ngModel)]="email" name="email" class="form-control"
+                        placeholder="Email *" formControlName="email" />
+
+                      <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
+                        <div *ngIf="f['email'].errors && f['email'].errors['required']">Email is required.</div>
+                        <div *ngIf="f['email'].errors && f['email'].errors['email']">Please, enter valid email address.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                      <input type="number" id="form2Example22" [(ngModel)]="phone" name="phone" class="form-control"
+                        placeholder="Phone Number *" formControlName="phone" />
+
+
+                      <div *ngIf="f['phone'].touched && f['phone'].invalid" class="alert alert-danger">
+                        <div *ngIf="f['phone'].errors && f['phone'].errors['required']">Phone is required.</div>
+                        <div *ngIf="f['phone'].errors && f['phone'].errors['phone']">Please, enter valid phone address.
+                        </div>
+                      </div>
+
+                    </div>
+
+
+                    <div class="form-outline mb-4">
+                      <input type="number" id="form2Example22" [(ngModel)]="age" name="age" class="form-control"
+                        placeholder="Age" />
+
+                    </div>
+                    <div class="form-outline mb-4">
+                      <select class="form-select form-select-sm  form-control" aria-label=".form-select-sm example"
+                        [(ngModel)]="gender" name="gender">
+                        <option disabled selected hidden style="color: rgb(87, 87, 90);" value=''>Gender *</option>
+                        <option value="Male" class="options"> Male </option>
+                        <option value="Female" class="options"> Female</option>
+                      </select>
+                    </div>
+
+
+                    <div class="form-outline mb-4">
+                      <label> Profile Picture: </label>
+                      &nbsp;
+                      &nbsp;
+                      <input [(ngModel)]="photo" name="photo" type="file" id="pics" class="profile-pic"
+                        accept="image/png, image/jpeg">
+                    </div>
+
+
+                    <div class="text-center pt-1 mb-5 pb-1">
+                      <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" id="signup" type="button"
+                        [disabled]="form.invalid" (click)="addstudent()"> Submit </button>
+                      < </div>
+
+
+
+                    </div>
+
+
+
+                    <div class="text-center pt-1 mb-5 pb-1">
+                      <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h4 class="modal-title"> View Student Data</h4>
+                              <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span
+                                  aria-hidden="true">&times;</span></button>
+                            </div>
+                            <div class="modal-body">
+                              <h4 class="modal-title">Student Id:{{selectedStudent.id}}</h4>
+                              <h4 class="modal-title">Student Name:{{selectedStudent.sname}}</h4>
+                              <h4 class="modal-title">Father Name:{{selectedStudent.fname}}</h4>
+                              <h4 class="modal-title">Address:{{selectedStudent.address}}</h4>
+                              <h4 class="modal-title">Email:{{selectedStudent.email}}</h4>
+                              <h4 class="modal-title">Phone No:{{selectedStudent.phone}}</h4>
+                              <h4 class="modal-title">Age:{{selectedStudent.age}}</h4>
+                              <h4 class="modal-title">Gender:{{selectedStudent.gender}}</h4>
+
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-default" (click)="onCloseHandled()">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':edit}">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h4 class="modal-title">Enter Values To Update</h4>
+                              <button type="button" class="close" aria-label="Close" (click)="closeEditModal()"><span
+                                  aria-hidden="true">&times;</span></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="form-outline mb-4">
+                                <input type="name" id="form2Example11" [(ngModel)]="selectedStudent.sname" name="sname"
+                                  class="form-control" placeholder="Name" />
+                              </div>
+                              <div class="form-outline mb-4">
+                                <input type="father-name" id="form2Example11" [(ngModel)]="selectedStudent.fname"
+                                  name="fname" class="form-control" placeholder="Father Name" />
+                              </div>
+                              <div class="form-outline mb-4">
+                                <input type="address" id="form2Example11" [(ngModel)]="selectedStudent.address"
+                                  name="address" class="form-control" placeholder="Address" />
+                              </div>
+
+                              <div class="form-outline mb-4">
+                                <input type="email" id="form2Example11" [(ngModel)]="selectedStudent.email" name="email"
+                                  class="form-control" placeholder="Email" #secondname />
+                              </div>
+
+                              <div class="form-outline mb-4">
+                                <input type="text" id="form2Example22" [(ngModel)]="selectedStudent.phone" name="phone"
+                                  class="form-control" placeholder="Phone Number" #password />
+                                <!-- <label class="form-label" for="form2Example22">Password</label> -->
+                              </div>
+
+
+                              <div class="form-outline mb-4">
+                                <input type="number" id="form2Example22" [(ngModel)]="selectedStudent.age" name="age"
+                                  class="form-control" placeholder="Age" />
+                                <!-- <label class="form-label" for="form2Example22">Password</label> -->
+                              </div>
+                              <div class="form-outline mb-4">
+                                <select class="form-select form-select-sm  form-control"
+                                  aria-label=".form-select-sm example" [(ngModel)]="gender" name="gender">
+                                  <option disabled selected hidden style="color: rgb(87, 87, 90);" value=''>Gender
+                                  </option>
+                                  <option value="male" class="options"> Male </option>
+                                  <option value="female" class="options"> Female</option>
+                                </select>
+                              </div>
+
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn1 btn-primary"
+                                (click)="editStudent(selectedStudent.id)">Update</button>
+                              <button type="button" class="btn1 btn-primary" (click)="closeEditModal()">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+
+                  </div>
+                </div>
+
+                <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                  <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                    <h4 class="mb-4" style="font-weight: bold;"> Students List </h4>
+
+                    <ul>
+                      <li *ngFor="let student of students let i=index">{{student.sname | titlecase}}
+                        <br>
+                        <button class="btn-primary" (click)="openModal(i)">
+                          View &NonBreakingSpace; <i class="fas fa-eye"></i> </button> &nbsp;
+
+                        <button class="btn-primary " (click)="RemoveItem(i)">Remove &NonBreakingSpace; <i
+                            class="fa fa-trash" title="Edit"></i> </button> &nbsp;
+                        <button class="btn-primary" (click)="openEditModal(i)">
+                          Edit &NonBreakingSpace;
+                          <i class="fas fa-edit"></i>
+                        </button>
+                      </li>
+                    </ul>
+
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+</body>
+
+</html>
